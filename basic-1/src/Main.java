@@ -37,6 +37,18 @@ public class Main {
         System.out.println(morePi);
         System.out.println(octNum);
         System.out.println(hexNum);
+
+        int a = 10;
+        int b = 5;
+        System.out.println("a+b = "+ String.valueOf(a + b));
+        System.out.println("a-b = "+ String.valueOf(a - b));
+        System.out.println("a*b = "+ String.valueOf(a * b));
+        System.out.println("a/b = "+ String.valueOf(a / b));
+        System.out.println(a++);
+        System.out.println(a);
+        System.out.println(++a);
+        System.out.println(a);
+
     }
 }
 
