@@ -18,10 +18,16 @@ public class Main {
             System.out.println("i = " + i);
         }
 
-        typeExplore();
+        numtypeExplore();
+        boolcharExplore();
+        strtypeExplore();
+        arraylistExplore();
+        mapExplore();
+        setExplore();
+        enumExplore();
     }
 
-    public static void typeExplore(){
+    public static void numtypeExplore(){
         int num = 10; //default
         long randomLongNum = 3245757235476234L; //long numbers should have L or l at the end of number
 
@@ -50,7 +56,10 @@ public class Main {
         System.out.println(++a); //increase a before printing, prints 12
         System.out.println(a); // a = 12
         System.out.println("a%b = "+ String.valueOf(a % b));
+    }
 
+
+    public static void boolcharExplore(){
         //boolean example
         int base = 180;
         int height = 185;
@@ -69,7 +78,15 @@ public class Main {
         char a1 = 97; //ASCII
         System.out.println(a1);
         System.out.println('\u0061'); //unicode
+    }
 
+    /*
+    Primitive data types - int, long, double, float, boolean, char - cannot be created using 'new' keyword
+    - each data type has corresponding wrapper classes
+    String can be expressed using literals
+     */
+
+    public static void strtypeExplore(){
         //string
         String a2 = "Happy new day";
         String b2 = new String("Yeet"); //use 'new' to make a new method
@@ -124,6 +141,21 @@ public class Main {
         sb.insert(0,"Hi ");
         System.out.println(sb.toString());
         System.out.println(sb.substring(0,7));
+    }
+
+    public static void arraylistExplore(){
+
+    }
+
+    public static void mapExplore(){
+
+    }
+
+    public static void setExplore(){
+
+    }
+
+    public static void enumExplore(){
 
     }
 }
@@ -183,7 +215,5 @@ class Animal{
 
 Animal cat;
 
-Primitive data types - int, long, double, float, boolean, char - cannot be created using 'new' keyword
-- each data type has corresponding wrapper classes
-String can be expressed using literals
+
  */
