@@ -38,16 +38,92 @@ public class Main {
         System.out.println(octNum);
         System.out.println(hexNum);
 
+        //integer calculation
         int a = 10;
         int b = 5;
         System.out.println("a+b = "+ String.valueOf(a + b));
         System.out.println("a-b = "+ String.valueOf(a - b));
         System.out.println("a*b = "+ String.valueOf(a * b));
         System.out.println("a/b = "+ String.valueOf(a / b));
-        System.out.println(a++);
-        System.out.println(a);
-        System.out.println(++a);
-        System.out.println(a);
+        System.out.println(a++); //increase a after printing this, prints 10
+        System.out.println(a); //a increased to 11
+        System.out.println(++a); //increase a before printing, prints 12
+        System.out.println(a); // a = 12
+        System.out.println("a%b = "+ String.valueOf(a % b));
+
+        //boolean example
+        int base = 180;
+        int height = 185;
+        boolean isTall = height > base;
+        if(isTall){
+            System.out.println("You are tall");
+        }
+
+        int c = 3;
+        if(c%2 == 1){
+            System.out.println("The number " + c + " is odd");
+        }
+
+        //char print
+        System.out.println('a'); //character
+        char a1 = 97; //ASCII
+        System.out.println(a1);
+        System.out.println('\u0061'); //unicode
+
+        //string
+        String a2 = "Happy new day";
+        String b2 = new String("Yeet"); //use 'new' to make a new method
+        String c2 = new String("Happy new day");
+
+        System.out.println(a2 + ' ' + b2);
+        System.out.println(a2.equals(c2)); //true
+        System.out.println(a2.equals(b2)); //false
+        System.out.println(a2.indexOf("new")); //returns 6
+        System.out.println(a2.contains("new")); //returns true
+        System.out.println(a2.charAt(6)); //prints 'n'
+        System.out.println(a2.replaceAll("day","year")); //replaces "day" to "year"
+        System.out.println(a2.substring(2,4)); //pp -> index 2 <= substring < index 4
+
+        String d = "a:b:c:d";
+        String[] dsplit = d.split(":"); //{"a","b","c","d"}
+        System.out.println(dsplit[1]); //shows b
+
+        //String.format returns string to print
+        System.out.println(String.format("Hello world %d",3));
+        System.out.println(String.format("Hello %s world","Java"));
+        System.out.println(String.format("My birthday is %s %dth","July",24));
+        System.out.println(String.format("%10dth",24)); //10 space, then print 24th
+        System.out.println(String.format("%.4f",3.141592)); //3.1416
+
+        //printf prints string
+        System.out.printf("My birthday is %s %dth\n", "July", 24); //similar to C's printf
+
+        /*
+        %s String
+        %c char
+        %d int
+        %f floating point
+        %o octal
+        %x hexadecimal
+        %% literal % (character %)
+         */
+
+        //stringbuffer
+        StringBuffer sb = new StringBuffer();
+        sb.append("Hello");
+        sb.append(" ");
+        sb.append("Good morning");
+        String result = sb.toString();
+        System.out.println(result);
+
+        //String is immutable, value cannot be changed
+        //StringBuffer is mutable, value can be changed
+        //new StringBuffer() takes more memory and slower
+        //StringBuffer() is better at multithreading, StringBuilder() has better performance
+        //Better to use StringBuffer() if synchronisation is needed
+        sb.insert(0,"Hi ");
+        System.out.println(sb.toString());
+        System.out.println(sb.substring(0,7));
 
     }
 }
@@ -106,4 +182,8 @@ class Animal{
 }
 
 Animal cat;
+
+Primitive data types - int, long, double, float, boolean, char - cannot be created using 'new' keyword
+- each data type has corresponding wrapper classes
+String can be expressed using literals
  */
