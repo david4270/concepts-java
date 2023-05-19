@@ -144,6 +144,15 @@ public class Main {
     }
 
     public static void arraylistExplore(){
+        //array
+        int [] odds = {1,3,5,7,9};
+        String [] daysinWeek = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
+        for(int i = 0; i < daysinWeek.length; i++){
+            System.out.println(i + " " + daysinWeek[i]);
+        }
+        // ArrayIndexOutOfBoundsException - error when trying to access out of index (8th index in daysinWeek)
+
+        //list
 
     }
 
