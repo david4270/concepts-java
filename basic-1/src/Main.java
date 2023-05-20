@@ -3,6 +3,11 @@
 
 // Written in Intellij x OpenJDK 20.0.1
 // Class Block - class name should be same as source file name
+
+// basic-1: Types in Java - exploration
+
+import java.util.*;
+
 public class Main {
     // Method Block - main method
     public static void main(String[] args) {
@@ -153,10 +158,104 @@ public class Main {
         // ArrayIndexOutOfBoundsException - error when trying to access out of index (8th index in daysinWeek)
 
         //list
+        //Arraylist - need to import java.util.ArrayList; Does not specify type
+        ArrayList greatDays = new ArrayList();
+        greatDays.add("234");
+        greatDays.add("123");
+        greatDays.add("154");
+        greatDays.add(0, "126"); //insert at index 0
+        greatDays.add(2, "253"); //insert at index 2
+
+        System.out.println(greatDays.get(4)); //get index 4
+        System.out.println(greatDays.size()); //get size
+        System.out.println(greatDays.contains("123")); //check if it contains 123
+        System.out.println(greatDays.remove(2)); //remove index 2, and return the number
+
+        greatDays.add(128);
+        System.out.println(greatDays.contains(128)); //contains integer 128
+        System.out.println(greatDays.contains("128")); //doesn't contain string "128"
+        System.out.println(greatDays);
+
+        //Generics - arraylist with specified type. Need to define reference
+        ArrayList<Integer> greatNo = new ArrayList<Integer>();
+        greatNo.add(7);
+        greatNo.add(9);
+        greatNo.add(10);
+        greatNo.add(11);
+
+        int seven = greatNo.get(0);
+        System.out.println(seven);
+        System.out.println(greatNo);
+
+        //If import java.util.Arrays; -> can generate ArrayList with new Arraylist<>(Arrays.asList(array))
+        ArrayList<String> arrDaysinWeek = new ArrayList<>(Arrays.asList(daysinWeek));
+        System.out.println(arrDaysinWeek);
+
+        ArrayList<String> arrRandNo = new ArrayList<>(Arrays.asList("3254","12345","1234"));
+        System.out.println(arrRandNo);
+
+        String res = "";
+        for (int i = 0; i < arrDaysinWeek.size(); i++){
+            res += arrDaysinWeek.get(i);
+            res += ", ";
+        }
+        res = res.substring(0,res.length()-2); //remove last comma and space
+        System.out.println(res);
+
+        //use String.join
+        String res2 = String.join(", ", arrDaysinWeek);
+        System.out.println(res2);
+
+        // import java.util.Comparator; to sort the ArrayList
+        greatNo.add(5);
+        greatNo.add(1);
+        greatNo.sort(Comparator.naturalOrder()); //in-order -> Comparator.naturalOrder(), reverse -> Comparator.reverseOrder()
+        System.out.println(greatNo);
+
 
     }
 
     public static void mapExplore(){
+        //import java.util.HashMap;
+        HashMap<String, Integer> plTable = new HashMap<>();
+        plTable.put("Manchester City",1);
+        plTable.put("Woolwich Fraud Club",2);
+        plTable.put("Newcastle Utd",3);
+        plTable.put("Manchester Utd",4);
+        plTable.put("Liverpool",5);
+        plTable.put("Brighton",6);
+        plTable.put("Aston Villa",7);
+        plTable.put("Tottenham Hotspur",8);
+        plTable.put("Brentford",9);
+        plTable.put("Fulham",10);
+        plTable.put("Crystal Palace",11);
+        plTable.put("Chelsea Clown Club",12);
+        plTable.put("Wolverhampton",13);
+        plTable.put("Bournemouth",14);
+        plTable.put("West Spam",15);
+        plTable.put("Nottingham Forest",16);
+        plTable.put("Everton",17);
+        plTable.put("Leeds United",18);
+        plTable.put("Leicester City",19);
+        plTable.put("Southampton",20);
+
+        System.out.println("Tottenham Hotspur is placed " + plTable.get("Tottenham Hotspur") + "th in Premier League"); //get value of key
+        System.out.println(plTable.getOrDefault("Norwich City", 0)); //return default value if get not working
+        System.out.println(plTable.containsKey("Manchester City")); //Check if key exists
+        System.out.println(plTable.containsKey("Southampton")); //Check if key exists
+        System.out.println(plTable.containsKey("Sunderland")); //Check if key exists
+
+        System.out.println("Southampton is relegated as " + plTable.remove("Southampton") + "th place");
+        System.out.println(plTable.containsKey("Southampton")); //Check if key exists
+
+        System.out.println(plTable.size()); //size of hashmap
+        System.out.println(plTable.keySet()); //print all keys -> collects all keys of map & returns as Set
+
+        List<String> keyList = new ArrayList<>(plTable.keySet()); //can be stored as list like this
+        System.out.println(keyList);
+
+        //LinkedHashMap - stores data in order of data storage
+        //TreeMap - stores data based on order of key (A->Z?)
 
     }
 
