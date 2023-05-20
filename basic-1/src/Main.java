@@ -30,6 +30,7 @@ public class Main {
         mapExplore();
         setExplore();
         enumExplore();
+        typeExchange();
     }
 
     public static void numtypeExplore(){
@@ -254,17 +255,151 @@ public class Main {
         List<String> keyList = new ArrayList<>(plTable.keySet()); //can be stored as list like this
         System.out.println(keyList);
 
+        //HashMap - unordered data storage
         //LinkedHashMap - stores data in order of data storage
         //TreeMap - stores data based on order of key (A->Z?)
 
     }
 
     public static void setExplore(){
+        HashSet<String> wordSet = new HashSet<>(Arrays.asList("C","O","M","E","O","N","Y","O","U","S","P","U","R","S"));
+        System.out.println(wordSet);
+
+        HashSet<String> wordSet2 = new HashSet<>(Arrays.asList("T","O","T","T","E","N","H","A","M"));
+        System.out.println(wordSet2);
+
+        //Intersection
+        HashSet<String> intersection = new HashSet<>(wordSet);
+        intersection.retainAll(wordSet2);
+        System.out.println(intersection);
+
+        //Union
+        HashSet<String> union = new HashSet<>(wordSet);
+        union.addAll(wordSet2);
+        System.out.println(union);
+
+        //Subtract
+        HashSet<String> subtract = new HashSet<>(wordSet);
+        subtract.removeAll(wordSet2);
+        System.out.println(subtract);
+
+        HashSet <String> exampleSet = new HashSet<>();
+        exampleSet.add("zero");
+        exampleSet.add("une");
+        exampleSet.add("deux");
+        exampleSet.add("trois");
+        exampleSet.add("quatre");
+        exampleSet.add("cinq");
+        exampleSet.add("six");
+        exampleSet.add("sept");
+        exampleSet.add("huit");
+        exampleSet.add("neuf");
+        exampleSet.add("dix");
+        exampleSet.add("onze");
+        exampleSet.add("onze");
+        exampleSet.add("douze");
+        exampleSet.add("treize");
+        exampleSet.add("quatorze");
+        exampleSet.add("quinze");
+        exampleSet.add("seize");
+
+        exampleSet.addAll(Arrays.asList("dix-sept","dix-huit","dix-neuf","vingt"));
+
+        exampleSet.add("Yeet");
+
+        System.out.println(exampleSet);
+
+        exampleSet.remove("Yeet");
+
+        System.out.println(exampleSet);
+
+
+        //HashSet - unordered, no repetitions
+        //LinkedHashSet - stores data in order of data storage, no repetitions
+        //TreeSet - stores data based on order of key (A->Z?), no repetitions
+    }
+
+    enum FootballLeagues{
+        PREMIER_LEAGUE,
+        EFL_CHAMPIONSHIP,
+        EFL_LEAGUE_1,
+        EFL_LEAGUE_2,
+        LA_LIGA,
+        LA_LIGA_2,
+        SERIE_A,
+        SERIE_B,
+        SERIE_C,
+
+        BUNDESLIGA,
+        BUNDESLIGA_2,
+        LIGA_3
+    }
+
+    public static int leagueTier(FootballLeagues type){
+        ArrayList<FootballLeagues> firstTier = new ArrayList<>(Arrays.asList(FootballLeagues.PREMIER_LEAGUE, FootballLeagues.LA_LIGA,FootballLeagues.SERIE_A,FootballLeagues.BUNDESLIGA));
+        ArrayList<FootballLeagues> secondTier = new ArrayList<>(Arrays.asList(FootballLeagues.EFL_CHAMPIONSHIP, FootballLeagues.LA_LIGA_2,FootballLeagues.SERIE_B,FootballLeagues.BUNDESLIGA_2));
+        ArrayList<FootballLeagues> thirdTier = new ArrayList<>(Arrays.asList(FootballLeagues.EFL_LEAGUE_1, FootballLeagues.SERIE_C, FootballLeagues.LIGA_3));
+        ArrayList<FootballLeagues> fourthTier = new ArrayList<>(Arrays.asList(FootballLeagues.EFL_LEAGUE_2));
+        if(firstTier.contains(type)){
+            return 1;
+        }
+        else if(secondTier.contains(type)){
+            return 2;
+        }
+        else if(thirdTier.contains(type)){
+            return 3;
+        }
+        else if(fourthTier.contains(type)){
+            return 4;
+        }
+        else{
+            return 0;
+        }
+    }
+    public static void enumExplore(){
+        System.out.println(FootballLeagues.PREMIER_LEAGUE);
+
+        for(FootballLeagues type: FootballLeagues.values()){
+            System.out.println(type);
+        }
+
+        int plTier = leagueTier(FootballLeagues.PREMIER_LEAGUE);
+        System.out.println(plTier);
+        System.out.println(leagueTier(FootballLeagues.LIGA_3));
 
     }
 
-    public static void enumExplore(){
+    public static void typeExchange() {
+        String num = "123";
+        int n = Integer.parseInt(num);
+        System.out.print(n);
 
+        String newNum = ""+ n;
+        String newNum1 = String.valueOf(n);
+        String newNum2 = Integer.toString(n);
+        System.out.println(newNum);
+        System.out.println(newNum1);
+        System.out.println(newNum2);
+
+        String doubleNum = "123.456";
+        double d = Double.parseDouble(doubleNum); //string -> double
+        double d2 = n; //int -> double
+        System.out.println(d);
+        System.out.println(d2);
+        int n2 = (int) d; //double -> int
+        System.out.println(n2);
+
+        //final -> to set constant (cannot reassign the value)
+
+        final int n3 = 123;
+        //n = 456; // creates compilation error
+
+        System.out.println(n3);
+
+        final ArrayList<String> a = new ArrayList<>(Arrays.asList("a","b"));
+        //a = new ArrayList<>(Arrays.asList("c","d")); //creates compilation error
+
+        //For list, add/remove of value is possible. To not allow add/remove, use List.of("a","b")
     }
 }
 
