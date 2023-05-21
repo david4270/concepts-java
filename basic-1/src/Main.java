@@ -31,6 +31,10 @@ public class Main {
         setExplore();
         enumExplore();
         typeExchange();
+        getAverage();
+        sumofThrees();
+        starTree();
+        classAvg();
     }
 
     public static void numtypeExplore(){
@@ -401,6 +405,55 @@ public class Main {
 
         //For list, add/remove of value is possible. To not allow add/remove, use List.of("a","b")
     }
+
+    public static void getAverage(){
+        HashMap<String, Integer> markSet = new HashMap<>();
+        markSet.put("English",95);
+        markSet.put("Mathematics",99);
+        markSet.put("Physics",97);
+        markSet.put("Chemistry",96);
+
+        int subjectSize = markSet.size();
+        double sumMark = 0;
+        ArrayList<Integer> markList = new ArrayList<>(markSet.values());
+
+        for(int i = 0; i < subjectSize; i++){
+            sumMark += markList.get(i);
+        }
+
+        System.out.println("The average of this student is " + sumMark/subjectSize);
+    }
+
+    public static void sumofThrees(){
+        int i = 0;
+        int sum = 0;
+        while(i < 1000){
+            if(i % 3 == 0){
+                sum += i;
+            }
+            i++;
+        }
+        System.out.println("The sum is: " + sum);
+
+    }
+
+    public static void starTree(){
+        for(int i = 1; i <= 5; i++){
+            for(int j = 0; j < i; j++) {
+                System.out.printf("*");
+            }
+            System.out.printf("\n");
+        }
+    }
+
+    public static void classAvg(){
+        int[] marks = {70, 60, 55, 75, 95, 90, 80, 80, 85, 100};
+        double sum = 0;
+        for(int var: marks){
+            sum += var;
+        }
+        System.out.println("The class average is " + sum / marks.length);
+    }
 }
 
 /*
@@ -457,6 +510,56 @@ class Animal{
 }
 
 Animal cat;
-
-
  */
+
+/*
+
+<If-else>
+
+if(clause){
+
+}
+else if (clause){
+
+}
+else{
+
+}
+
+<Switch/case>
+
+switch(variable){
+    case A:
+        break;
+    case B:
+        break;
+    case C:
+        break;
+    default:
+        break;
+}
+
+<While>
+
+while(clause){
+
+}
+
+<For>
+for(int i = start; i < end; i++){
+    //Content 1
+    if(clause){
+        //Content if-yes
+        continue; //moves to next iteration of for loop. (Content 2 not reached)
+    }
+    //Content 2
+}
+
+<For each>
+
+//for example, String number: numbers when numbers is list
+for(type variable: iterate){
+
+}
+
+* */
