@@ -1,5 +1,5 @@
 
-//basic-2: OOP concepts
+//basic-2: basic OOP concepts - class, method, inheritance, constructor overloading
 
 //Calculator class
 class Calculator{
@@ -41,6 +41,83 @@ class Calculator{
     }
 }
 
+//Businesses - football club, corporation
+class Business{
+    int budget = 0;
+    String corpName;
+
+    void setName(String name){
+        this.corpName = name;
+    }
+
+    String getName(){
+        return this.corpName;
+    }
+
+}
+
+class FootballClub extends Business{
+    int trophyCount = 0;
+    //Business club = new Business();
+
+    FootballClub(){
+
+    }
+
+    FootballClub(String name, int trophyCtr){
+        this.setName(name);
+        this.trophyCount = trophyCtr;
+    }
+
+    void trophyWon(){
+        trophyCount += 1;
+        this.budget += 10000;
+    }
+
+    void ticketsSold(int numTickets){
+        this.budget += 50 * numTickets;
+    }
+
+    void playerSold(int moneyIn){
+        this.budget += moneyIn;
+    }
+
+    void playerBought(int moneyOut){
+        this.budget -= moneyOut;
+    }
+
+    int clubBudget(){
+        return this.budget;
+    }
+
+    int getTrophyCount(){
+        return this.trophyCount;
+    }
+}
+
+class Corporation extends Business{
+    Corporation(){
+
+    }
+
+    Corporation(String name){
+        this.setName(name);
+    }
+
+    //Business corp = new Business();
+    void productSold(int numProducts){
+        this.budget += 100 * numProducts;
+    }
+
+    void salaryPaid(int salary){
+        this.budget -= 10000 * salary;
+    }
+
+    int corpBudget(){
+        return this.budget;
+    }
+}
+
 //Main class
 public class Main {
     public static void main(String[] args) {
@@ -57,6 +134,34 @@ public class Main {
         System.out.println(cal1.div(3,5));
 
         System.out.println(cal1.returnVal(3.3546));
+
+        Corporation yourCompany = new Corporation();
+        FootballClub tottenhamHotspur = new FootballClub();
+
+        yourCompany.setName("Good Morning");
+        tottenhamHotspur.setName("Tottenham Hotspur Football Club");
+
+        yourCompany.productSold(40000);
+        yourCompany.salaryPaid(300);
+        System.out.println(yourCompany.corpBudget());
+
+        tottenhamHotspur.trophyWon();
+        tottenhamHotspur.playerBought(3000);
+        tottenhamHotspur.playerSold(8000);
+        tottenhamHotspur.ticketsSold(5000);
+        System.out.println(tottenhamHotspur.getTrophyCount());
+        System.out.println(tottenhamHotspur.clubBudget());
+
+        System.out.println(yourCompany.getName());
+        System.out.println(tottenhamHotspur.getName());
+
+        FootballClub woolwichFraudClub = new FootballClub("Woolwich Arsenal Fraud Club", 0);
+        System.out.println(woolwichFraudClub.getTrophyCount());
+        System.out.println(woolwichFraudClub.clubBudget());
+        System.out.println(woolwichFraudClub.getName());
+
+        Corporation newCompany = new Corporation("Yellow");
+        System.out.println(newCompany.getName());
 
     }
 }
